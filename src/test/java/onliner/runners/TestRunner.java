@@ -2,6 +2,7 @@ package onliner.runners;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
+import io.cucumber.testng.AbstractTestNGCucumberTests;
 import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
@@ -11,5 +12,5 @@ import org.junit.runner.RunWith;
         plugin = {"pretty","json:target/cucumber-reports/cucumber.json"},
         publish = true)
 
-public class TestRunner {
+public class TestRunner extends AbstractTestNGCucumberTests {
 }
