@@ -2,6 +2,7 @@ package onliner.pages;
 
 import framework.elements.Button;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 
 public class CataloguePage extends MainPage {
 
@@ -12,21 +13,25 @@ public class CataloguePage extends MainPage {
     private final String catalogAsideListItemLocator =
             "//div[@class='catalog-navigation-list__aside-item'][contains(.,'%s')]";
     private final String catalogAsideListDropdownItemLocator =
-            "//a[@class='catalog-navigation-list__dropdown-item'][contains(.,'%s')]";
+            "//*[@id=\"container\"]/div/div/div/div/div[1]/div[4]/div/div[2]/div[1]/div/div[2]/div[2]/div/a[1][contains(.,'%s')]";
+
+    private Button btnCatalogNavigationItem;
+    private Button btnCatalogAsideListItem;
+    private Button btnCatalogAsideListDropdownItem;
 
     public CataloguePage(String pageLocatorValue) {
         super(By.xpath(String.format(pageLocator, pageLocatorValue)));
     }
 
     public CataloguePage selectCatalogNavigationItem(String selectedCatalogNavigationItem) {
-        Button btnCatalogNavigationItem = new Button(By.xpath(String.format(catalogNavigationItemLocator, selectedCatalogNavigationItem)));
+        btnCatalogNavigationItem = new Button(By.xpath(String.format(catalogNavigationItemLocator, selectedCatalogNavigationItem)));
         btnCatalogNavigationItem.click();
         return this;
     }
 
     public ProductsPage moveToAndSelectCatalogAsideListDropdownItem(String selectedCatalogAsideListItem, String selectedCatalogAsideListDropdownItem) {
-        Button btnCatalogAsideListItem = new Button(By.xpath(String.format(catalogAsideListItemLocator, selectedCatalogAsideListItem)));
-        Button btnCatalogAsideListDropdownItem = new Button(By.xpath(String.format(catalogAsideListDropdownItemLocator, selectedCatalogAsideListDropdownItem)));
+        btnCatalogAsideListItem = new Button(By.xpath(String.format(catalogAsideListItemLocator, selectedCatalogAsideListItem)));
+        btnCatalogAsideListDropdownItem = new Button(By.xpath(String.format(catalogAsideListDropdownItemLocator, selectedCatalogAsideListDropdownItem)));
         btnCatalogAsideListItem.moveToElementAndClick();
         btnCatalogAsideListDropdownItem.moveToElementAndClick();
         return new ProductsPage(selectedCatalogAsideListDropdownItem);
