@@ -12,8 +12,8 @@ public class Hook {
         browser.windowMaximize();
     }
 
-    @After
+    /*@After
     public void teardown() {
         browser.exit();
-    }
+    }*/
 }

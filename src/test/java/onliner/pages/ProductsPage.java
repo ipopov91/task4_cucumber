@@ -104,9 +104,9 @@ public class ProductsPage extends MainPage {
         for (WebElement element : productsDescriptions) {
             double diagonal = Double.parseDouble(element.getText().substring(0, 2));
             if(diagonal >= Double.parseDouble(filterValueStartRange) && diagonal <= Double.parseDouble(filterValueEndRange)){
-                return true;
+                return false;
             }
         }
-        return false;
+        return true;
     }
 }
