@@ -8,7 +8,8 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = {"src/test/java/onliner/features"},
         glue = {"onliner.stepdefinitions","onliner.hooks"},
-        plugin = {"pretty","json:target/cucumber-reports/cucumber.json"},
+        plugin = {"pretty","html:target/cucumber.html",
+                "json:target/cucumber.json","json:target/cucumber-reports/CucumberTestReport.json"},
         publish = true)
 
 public class TestRunner {
