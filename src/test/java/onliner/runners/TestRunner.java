@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
         features = {"src/test/java/onliner/features"},
         glue = {"onliner.stepdefinitions","onliner.hooks"},
         plugin = {"pretty","html:target/cucumber.html",
-                "json:target/cucumber.json","json:target/cucumber-reports/CucumberTestReport.json"},
+                "json:target/cucumber.json"},
         publish = true)
 
 public class TestRunner {
