@@ -1,17 +1,15 @@
 package onliner.runners;
 
-import framework.TestListener;
-import io.cucumber.testng.CucumberOptions;
-import io.cucumber.testng.AbstractTestNGCucumberTests;
-import org.testng.annotations.Listeners;
+import io.cucumber.junit.Cucumber;
+import io.cucumber.junit.CucumberOptions;
+import org.junit.runner.RunWith;
 
-@Listeners(TestListener.class)
+@RunWith(Cucumber.class)
 @CucumberOptions(
         features = {"src/test/java/onliner/features"},
         glue = {"onliner.stepdefinitions","onliner.hooks"},
-        plugin = {"pretty","html:target/cucumber.html",
-                "json:target/cucumber.json","json:target/cucumber-reports/CucumberTestReport.json"},
+        plugin = {"pretty","json:target/cucumber-reports/cucumber.json"},
         publish = true)
 
-public class TestRunner extends AbstractTestNGCucumberTests {
+public class TestRunner {
 }

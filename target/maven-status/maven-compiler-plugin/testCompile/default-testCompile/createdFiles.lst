@@ -1,5 +1,4 @@
 framework\elements\Label.class
-framework\TestListener.class
 onliner\stepdefinitions\CatalogueSteps.class
 framework\elements\BaseElement.class
 onliner\pages\CataloguePage.class
